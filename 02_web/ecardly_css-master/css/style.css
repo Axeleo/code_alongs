@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url(../images/background.jpg);
+  background-repeat: repeat-x;
+  background-color: lightgray;
+}
+.wrapper {
+  border: 1px solid purple;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+footer {
+  margin: 20px 0 10px 0;
+  border: 1px solid red;
+  text-align: center;
+}
+aside {
+  border: 1px solid blue;
+  background-color: white;
+  width: 29%;
+  margin-left: 2%;
+}
+main {
+  border: 1px solid green;
+  width: 69%; 
+}
+main img,
+aside img {
+  width: 100%;
+}
+section {
+  background-color: white;
+  padding: 10px;
+} 
+header {
+  margin: 20px 0 10px 0;
+  display: block;
+  text-align: center;
+}
+h1{
+  margin: 0;
+  padding: 20px 0;
+}
+p {
+  text-align: left;
+  border-bottom: 1px solid black;
+  padding: 0 0 10px 0;
+} 
+a {
+  text-decoration: none;
+  color: orangered;
+}
+ul{
+  list-style: none;
+}
+

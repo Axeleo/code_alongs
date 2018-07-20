@@ -1,0 +1,39 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif
+}
+.todo-list{
+  list-style: none;
+  padding: 0;
+}
+.todo-item {
+  border: 1px solid darkgoldenrod;
+  border-top: 4px solid burlywood;
+  background-color: rgb(232, 202, 102);
+  padding: 10px;
+  margin-bottom: 5px;
+  transition: all .5s linear;
+}
+.completed{
+  border-color: grey;
+  text-decoration: line-through;
+  color: grey;
+}
+.hidden {
+  display: none;
+}
+.new-todo-input{
+  border: none;
+  border-bottom: 4px solid darkgoldenrod;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 10px;
+}
+.new-todo-input:focus{
+    background-color: rgb(181, 196, 247);
+    border-bottom: 4px solid rgb(71, 113, 250);
+    outline: none;
+    transition: all 400ms ease-out
+}

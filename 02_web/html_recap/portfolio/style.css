@@ -1,0 +1,32 @@
+body {
+  background-color: bisque;
+}
+h1{
+  text-align: center;
+}
+
+nav a:first-child{
+  border-right: 1px solid black;
+  padding-right: 5px;
+}
+header {
+
+}
+
+main {
+
+}
+
+footer {
+  clear: right;
+  text-align: center;
+}
+
+img {
+  float: right;
+}
+li{
+  list-style: none;
+  display: inline;
+  padding: 0;
+}

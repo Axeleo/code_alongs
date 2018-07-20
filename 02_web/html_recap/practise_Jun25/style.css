@@ -1,0 +1,29 @@
+
+/* start general at the top then write more specific rules */
+body {
+  background-color: aquamarine;
+  border: 10px solid black;
+}
+h1 {
+  color: bisque;
+}
+
+/* id selector */
+#special{
+  color: azure;
+}
+/* class selector */
+.not-special{
+  color: rosybrown;
+}
+/* descendant */
+
+article h1 {
+  color: salmon;
+}
+
+/* direct child */
+
+article > h1{
+  color: tomato
+}
