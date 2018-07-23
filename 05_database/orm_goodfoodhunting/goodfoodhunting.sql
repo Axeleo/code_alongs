@@ -22,3 +22,21 @@ CREATE TABLE comments (
 );
 
 
+CREATE TABLE users (
+  id SERIAL4 PRIMARY KEY,
+  email VARCHAR(300),
+  password_digest VARCHAR(400)
+);
+
+ALTER TABLE dishes ADD COLUMN user_id INTEGER;
+
+
+CREATE TABLE likes (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER,
+  dish_id INTEGER
+);
+
+ALTER TABLE comments ADD COLUMN user_id INTEGER;
+
+UPDATE comments SET user_id = 1;

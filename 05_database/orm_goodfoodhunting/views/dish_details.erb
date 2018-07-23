@@ -2,6 +2,14 @@
 <h1><%= @dish.name %></h1>
 
 <img src="<%= @dish.image_url %>" alt="">
+<p>posted by <%= @dish.user %></p>
+
+<p><%= @dish.likes.count %></p>
+<form action="/likes" method='post'>
+  <input type="hidden" name="dish_id" value="<%= @dish.id %>">
+  <button>Like</button>
+</form>
+
 
 <form action="/dishes/<%= @dish.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
@@ -19,4 +27,5 @@
 
 <% @comments.each do |comment|  %>
 <p><%= comment['content'] %></p>
+<p><%= comment.user.email %></p>
 <% end  %>
