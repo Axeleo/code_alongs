@@ -1,0 +1,58 @@
+
+
+
+* {
+  box-sizing: border-box;
+}
+.content {
+  padding: 1em;
+}
+.right {
+  float: right;
+}
+
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  background-color: papayawhip;
+  width: 400px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width:2em ;
+  height:2em ;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: grey;
+  border-radius: 50%l
+}
+
+.dish-card header {
+  line-height: 2em;
+}
+
+
+.image-wrapper {
+  position: relative;
+}
+
+.star {
+  color: peachpuff;
+  position: absolute;
+  font-size: 1.5em;
+  top: 0.7em;
+  right: 0.7em;
+  opacity: 0;
+  transition:  all .4s linear;
+  cursor: pointer;
+}
+
+.star:hover {
+  color: black;
+}
+
+.image-wrapper:hover .star{
+  opacity: 1;
+}
+

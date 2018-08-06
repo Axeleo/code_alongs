@@ -49,6 +49,12 @@ get '/dishes/:id' do
   erb :dish_details
 end
 
+get '/api/dishes/:id' do
+  @dish = Dish.find(params[:id])
+  content_type :json
+  return @dish.to_json
+end
+
 # creating a dish
 post '/dishes' do
   dish = Dish.new
@@ -76,6 +82,20 @@ put '/dishes/:id' do
   dish.image_url = params[:image_url]
   dish.save
   redirect "/dishes/#{params[:id]}"
+end
+
+def make_comment
+  @comment.save!
+end
+
+def do_stuff
+
+  begin
+    make_comment()
+  rescue
+    # do something here when exception happens
+  end
+  
 end
 
 post '/comments' do
@@ -120,4 +140,13 @@ post '/likes' do
   like.user_id = current_user.id
   like.save
   redirect "/dishes/#{params[:dish_id]}"
+end
+
+post '/api/likes' do 
+  content_type :json
+  like = Like.new
+  like.dish_id = params[:dish_id]
+  like.user_id = current_user.id
+  like.save
+  {like_count: Dish.find(like.dish_id).likes.count}.to_json
 end

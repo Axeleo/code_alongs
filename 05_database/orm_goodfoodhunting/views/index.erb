@@ -5,8 +5,43 @@
 
 <% @dishes.each do |dish| %>
 
-<p>
-  <a href="/dishes/<%= dish['id'] %>"> <%= dish['name'] %></a>
-</p>
-
+  <div class="dish-card">
+    <header class="content">
+      <img src="http://via.placeholder.com/20x20" alt="" class="avatar">
+      <span>User</span>
+      <span class="right">14h</span>
+    </header>
+    <section class="image-wrapper">
+      <img src="http://via.placeholder.com/800x800" alt="">
+      <span class="star">&#10032;</span>
+    </section> 
+    <main class="content">
+      <h1><%= dish.name%></h1>
+      <h2>at GA</h2>
+    </main>
+    <footer class="content">
+      <span>By DT</span>
+      <span class="like-count, right"><%= dish.likes.count%></span>
+    </footer>
+  </div>
 <% end %>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+
+document.querySelectorAll(".star").forEach(elem => {
+  elem.addEventListener('click', function () {
+    var options ={
+      url: "/api/likes",
+      method: 'post',
+      data: {dish_id: 3}
+    }
+    var likeCount = event.target.closest('div').querySelector('.like-count')
+    $.ajax(options).done(function (res) {
+      likeCount.textContent = res.like_count
+    })
+  })
+})
+
+</script>
