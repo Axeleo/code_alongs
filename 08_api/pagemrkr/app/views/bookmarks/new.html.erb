@@ -1,0 +1,11 @@
+<% @bookmark.errors.full_messages.each do |message|  %>
+
+<p><%= message %></p>
+
+<% end  %>
+
+
+<%= form_tag '/bookmarks', method: 'post' do%>
+  <input type="text" name="bookmark[url]" value="<%= @bookmark.url %>">
+  <button>CREATE</button>
+<% end %>

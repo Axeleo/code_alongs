@@ -1,0 +1,67 @@
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+<nav>
+  <ul>
+    <li><a href="/recent">Recent</a></li>
+    <li><a href="/neglected">Neglected</a></li>
+    <li><a href="/bookmarks/archived">Archived</a></li>
+    <li><a href="/bookmarks">All</a></li>
+  </ul>
+</nav>
+
+
+<form class="new-bookmark-form" action="/api/bookmarks" method="post">
+  <input type="text" class="url-input" name="bookmark[url]" value="<%= @bookmark.url %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <button>CREATE</button>
+</form>
+
+<div class="bookmarks">
+<% @bookmarks.each do |bookmark|  %>
+<p>
+  <a href="/bookmarks/<%= bookmark.id %>"><%= bookmark.title %></a>
+  <span> <%= bookmark.click_count %></span>
+</p>
+
+<%= form_tag "/bookmarks/archive/#{bookmark.id}", method: 'put' do  %>
+  <% if bookmark.archived == false %>
+   <button>Archive</button>
+   <% else  %>
+   <button>Un-Archive</button>
+   <% end  %>
+<% end  %>
+
+<% end %>
+</div>
+
+<script>
+  let urlInput = document.querySelector('.url-input')
+  let newBookmarkForm = document.querySelector('.new-bookmark-form')
+  newBookmarkForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    let urlValue = urlInput.value
+    const options = {
+      method: 'post',
+      url: 'api/bookmarks/',
+      dataType: 'json',
+      data: {
+        url: urlValue
+      }
+    }
+    // aim
+    // ajax post to api/bookmarks params
+    $.ajax(options).done(res => {
+      var $bookmarkDiv = $('<div>').addClass("bookmark")
+      let $anchor = $("<a>").text(res.title)
+      $anchor[0].href = res.url
+      let $span = $("<span>").text(res.click_count)
+      $bookmarkDiv.append($anchor)
+      $bookmarkDiv.append($span)
+      $(".bookmarks").prepend($bookmarkDiv)
+    })
+  })
+
+</script>
