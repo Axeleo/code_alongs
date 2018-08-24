@@ -1,0 +1,16 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "classes.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^23.5.0",
+    "mocha": "^5.2.0"
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas>
+
+  </canvas>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.js"></script>
+  <script>
+    function setup() {
+      createCanvas(300,300)
+    }
+    
+    const lineSize = 20
+    function draw() {
+      line(0,0,300,300)
+      for (let y = 0; y < canvas.height; y+= 5) {
+        for (let x = 0; x < canvas.width; x += 5) {  
+          drawLine(x, y, lineSize, lineSize)
+        }
+      }
+      noLoop()
+    }
+
+  //   var canvas = document.querySelector("canvas")
+  //   var context = canvas.getContext('2d')
+  //   canvas.width = 300
+  //   canvas.height = 300
+
+  //   const lineSize = 5
+    
+    function drawLine(x, y, width, height) {
+      let lefTToRight = Math.random() >= 0.5
+
+      if (lefTToRight){
+        line(x, y, x + width, y + height)
+        // context.moveTo(x, y)
+        // context.lineTo(x + width,y + height)
+        // context.stroke()
+      } else {
+        line(x + width, y, x, y + height)
+        // context.moveTo(x + width, y)
+        // context.lineTo(x, y + height)
+        // context.stroke()
+      }
+    }
+
+  // for (let y = 0; y < canvas.height; y+= 5) {
+  //   for (let x = 0; x < canvas.width; x += 5) {  
+  //     drawLine(x, y, lineSize, lineSize)
+  //   }
+  // }
+  </script>
+ 
+</body>
+</html>
